@@ -1,0 +1,2 @@
+# magyarch-nimdow
+window manager
