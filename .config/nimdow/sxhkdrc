@@ -1,0 +1,64 @@
+# Nimdow keybinds
+
+# Main and float terminal
+super + {_,shift + } Return
+    {$TERMINAL, $TERMFLOAT}
+
+# Chat client, gui filemanager
+super + {_,shift + } p
+    {discord, pcmanfm}
+
+# Dmenu2 and rofi(window switcher, application launcher)
+super + {_,shift +} d
+    {dmenu_run -i -p 'Search' -nb '#1a1a1a' -sb '#2e8b57' -fn 'JetBrains Mono Nerd Font:size=14' -w '1460' -h '54' -x '1304' -y '88' -o '0.7', rofi_run -r}
+
+# Tui filemanager 
+super + r
+   $TERMINAL -e $FILE
+
+# Reload sxhkd and nimdow
+super + Escape
+   pkill -USR1 -x sxhkd
+
+# Record and stream
+super + {KP_Home,KP_End}
+    {dmenurecord, live.sh}   
+
+# Open help doc
+super + F1
+    zathura ~/.local/share/Magyarch-bspwm.pdf
+
+# Edit conf files,select display,search the net
+super + {F2,F3,F11}
+  {edconf.sh,displayselect,ducksearch}    
+
+# Change background
+super + F8
+    wal
+
+# Take and pick screenshot
+super + {F4,F5}
+     {maim -d 2 ~/Képek/Képernyőképek/$(date +%Y-%m-%d_%H:%M:%S).png,maimpick}
+
+# Mount and umount a USB drive or Android device
+super + {F9,F10}
+    {dmenumount,dmenuumount}
+
+
+###########################################
+        # Volume Control
+###########################################
+
+# Decrease volume -5
+alt + {Up,Down}
+    {pamixer --allow-boost -i 5,pamixer --allow-boost -d 5}
+
+# Mute volume
+F12
+   amixer set Master toggle
+
+
+# Sratchpad
+F1
+  tdrop -ma -w 50% -h 50% -y 25% -x 25%  alacritty --class=tdrop -t tdrop  
+
